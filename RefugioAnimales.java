@@ -50,7 +50,7 @@ public class RefugioAnimales {
                     //adoptarAniamles();
                     break;
                 case 4:
-                    //mostrarPorEstado();
+                    mostrarAnimalesDisponibles(estadoAnimal);
                     break;
                 case 5:
                     //mostrarPorEstado();
@@ -134,7 +134,25 @@ public class RefugioAnimales {
 
         System.out.println("Animal registrado exitosamente.");
 
+        }
 
+
+        // opcion 4
+        public static void mostrarAnimalesDisponibles(Map<String, String> estadoAnimal) {
+        // mostramos un mensaje si el campo del estado esta vacio.
+                if (estadoAnimal.isEmpty()) { // si la lista de estadoAnimal esta vacia entonces mostramos el mensaje de no hay animales registrados.
+                    System.out.println(" No hay animales registrados. ");
+
+                }else { // en caso de que haya animales registrados entonces mostramos el mensaje de animales disponibles y recorremos el mapa para mostrar los animales disponibles.
+                    // reccoremos el mapa
+                    estadoAnimal.forEach((nombre, estado ) -> {
+                        // mostramos solo si hay animales disponibles
+                        if (estado.equalsIgnoreCase("disponible")) { // si el estado del animal es igual a disponible entonces mostramos el nombre del animal.
+                            System.out.println(" - " + nombre);
+                        }
+                    });
+
+                }
 
     }
 
